@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Мои задачи</string>
+    <string name="action_delete_all_entries">Удалить все задачи</string>
+    <string name="editor_activity_title_new_task">Создать задачу</string>
+    <string name="editor_activity_title_edit_task">Редактировать</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_delete">Удалить</string>
+    <string name="category_overview">Задача</string>
+    <string name="category_importance">Важность</string>
+    <string name="hint_task_text">Нужно...</string>
+    <string name="importance_unknown">Средняя</string>
+    <string name="importance_high">Высокая</string>
+    <string name="empty_view_title_text">Пусто</string>
+    <string name="empty_view_subtitle_text">Начать добавлять задачи</string>
+    <string name="editor_insert_task_successful">Сохранено</string>
+    <string name="editor_insert_task_failed">Не сохранено</string>
+    <string name="editor_update_task_successful">Сохранено</string>
+    <string name="editor_update_task_failed">Ошибка при сохранения задачи</string>
+    <string name="unsaved_changes_dialog_msg">Не сохранять?</string>
+    <string name="discard">Не сохранять</string>
+    <string name="keep_editing">Продолжить редактировать</string>
+    <string name="editor_delete_task_successful">Задача удалена</string>
+    <string name="editor_delete_task_failed">Ошибка при удалении задачи</string>
+    <string name="delete_dialog_msg">Удалить?</string>
+    <string name="delete">Удалить</string>
+    <string name="cancel">Отмена</string>
+
+</resources>
