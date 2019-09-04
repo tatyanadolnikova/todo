@@ -13,27 +13,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:text="@string/category_overview"
-            style="@style/CategoryStyle" />
-
-        <!-- Input fields -->
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:paddingLeft="4dp"
+            android:paddingRight="4dp"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/edit_task_text"
                 android:hint="@string/hint_task_text"
-                android:inputType="textCapWords"
+                android:inputType="textMultiLine|textCapSentences"
+                android:lines="8"
+                android:minLines="1"
+                android:gravity="top|left"
+                android:maxLines="4"
                 style="@style/EditorFieldStyle" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Gender category -->
     <LinearLayout
         android:id="@+id/container_gender"
         android:layout_width="match_parent"
@@ -44,7 +43,6 @@
             android:text="@string/category_importance"
             style="@style/CategoryStyle" />
 
-        <!-- Input field -->
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="0dp"
