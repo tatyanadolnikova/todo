@@ -11,9 +11,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -23,6 +26,8 @@ import com.example.android.pets.data.TaskContract.TaskEntry;
 public class CatalogActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int TASK_LOADER = 0;
+
+    private Uri currentTaskUri; //!
 
     TaskCursorAdapter cursorAdapter;
 
@@ -48,14 +53,22 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         cursorAdapter = new TaskCursorAdapter(this, null);
         taskListView.setAdapter(cursorAdapter);
 
-        // Setup the item click listener
         taskListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Intent intent = new Intent(CatalogActivity.this, EditorActivity.class);
-                Uri currentPetUri = ContentUris.withAppendedId(TaskEntry.CONTENT_URI, id);
-                intent.setData(currentPetUri);
+                Uri currentTaskUri = ContentUris.withAppendedId(TaskEntry.CONTENT_URI, id);
+                intent.setData(currentTaskUri);
                 startActivity(intent);
+            }
+        });
+
+        taskListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Uri currentTaskUri = ContentUris.withAppendedId(TaskEntry.CONTENT_URI, l);
+                getContentResolver().delete(currentTaskUri, null, null);
+                return true;
             }
         });
 

@@ -2,6 +2,7 @@ package com.example.android.pets;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class TaskCursorAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
         TextView taskTextView = (TextView) view.findViewById(R.id.name);
         int textColumnIndex = cursor.getColumnIndex(TaskEntry.TASK_TEXT);
-        String petName = cursor.getString(textColumnIndex);
-        taskTextView.setText(petName);
+        String taskText = cursor.getString(textColumnIndex);
+        taskTextView.setText(taskText);
     }
 }

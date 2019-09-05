@@ -253,7 +253,7 @@ public class EditorActivity extends AppCompatActivity implements
         builder.setMessage(R.string.delete_dialog_msg);
         builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                deletePet();
+                deleteTask();
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -267,9 +267,8 @@ public class EditorActivity extends AppCompatActivity implements
         alertDialog.show();
     }
 
-    private void deletePet() {
+    private void deleteTask() {
         if (currentTaskUri != null) {
-
             int rowsDeleted = getContentResolver().delete(currentTaskUri, null, null);
 
             if (rowsDeleted == 0) {
@@ -280,7 +279,6 @@ public class EditorActivity extends AppCompatActivity implements
                         Toast.LENGTH_SHORT).show();
             }
         }
-
         finish();
     }
 }
